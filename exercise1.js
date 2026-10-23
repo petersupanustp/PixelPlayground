@@ -29,15 +29,35 @@ function drawPixel(x, y, color) {
   ctx.fillRect(x, y, 1, 1);
 }
 
-function drawHorizontalLine(x, y, color) {
-    drawPixel(x, y, color);
-    drawPixel(x+1, y, color);
-    drawPixel(x+2, y, color);
-    drawPixel(x+3, y, color);
-    drawPixel(x+4, y, color);
+function drawHorizontalLine(x ,y, color, length) {
+  console.log("i am in horizontal line function");
+  for(let i = 0; i < length; i++) {
+    drawPixel(x+i, y, color);
+  }
+}
+
+function drawVerticalLine(x,y,color, length) {
+  for(let i = 0; i < length; i++) {
+    drawPixel(x, y+i, color);
+  }
+}
+
+function drawDiagonalLine(x,y,color, length) {
+  for(let i = 0; i < length; i++) {
+    drawPixel(x+i, y+i, color);
+  }
+}
+
+function drawLine(x,y,color, length, direction) {
+  console.log("ougdidfsf");
+  if (direction === "horizontal") {
+    drawHorizontalLine(x,y,color, length);
+    console.log("i am in horizontal drawing");
+  }
 }
 
 clearScreen("black");
+
 
 // test code 
 drawPixel(0,0,"red")
